@@ -1,0 +1,457 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Квартира-студия для двоих — ANASTAY</title>
+  <meta name="description" content="Квартира-студия для двоих в Академическом районе Екатеринбурга, Мичуринский, рядом с торговым центром Юла">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .apartment-page {
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 1168px;
+      margin: 0 auto;
+      padding: 40px 24px 70px;
+      color: #f5f1e8;
+    }
+
+    .apartment-page *,
+    .apartment-page *::before,
+    .apartment-page *::after {
+      box-sizing: border-box;
+    }
+
+    .apartment-back {
+      display: inline-block;
+      margin-bottom: 26px;
+      color: #d9b66f;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .apartment-page h1 {
+      margin: 0 0 12px;
+      color: #f5f1e8;
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1.15;
+    }
+
+    .apartment-subtitle {
+      margin: 0 0 28px;
+      color: #c2c3bb;
+      line-height: 1.7;
+    }
+
+    .gallery-main {
+      position: relative;
+      width: 100%;
+      height: clamp(280px, 52vw, 560px);
+      overflow: hidden;
+      border-radius: 10px;
+      background: #171a17;
+    }
+
+    .apartment-page img.apartment-main-photo {
+      display: block;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      object-fit: contain;
+      background: #171a17;
+      cursor: zoom-in;
+    }
+
+    .gallery-arrow {
+      position: absolute;
+      top: 50%;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      padding: 0 0 4px;
+      transform: translateY(-50%);
+      border: 1px solid rgba(217, 182, 111, 0.75);
+      border-radius: 50%;
+      background: rgba(23, 26, 23, 0.85);
+      color: #d9b66f;
+      font-size: 36px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .gallery-prev { left: 16px; }
+    .gallery-next { right: 16px; }
+
+    .gallery-counter {
+      position: absolute;
+      right: 14px;
+      bottom: 14px;
+      z-index: 5;
+      padding: 7px 12px;
+      border-radius: 20px;
+      background: rgba(23, 26, 23, 0.85);
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .gallery-thumbnails {
+      display: flex;
+      flex-flow: row nowrap;
+      gap: 10px;
+      width: 100%;
+      margin-top: 12px;
+      padding: 4px 2px 12px;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+
+    .apartment-page .gallery-thumbnails img {
+      display: block;
+      flex: 0 0 110px;
+      width: 110px;
+      min-width: 110px;
+      height: 78px;
+      min-height: 78px;
+      margin: 0;
+      object-fit: cover;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      opacity: 0.7;
+      cursor: pointer;
+    }
+
+    .apartment-page .gallery-thumbnails img.active {
+      border-color: #d9b66f;
+      opacity: 1;
+    }
+
+    .apartment-info {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin: 26px 0;
+    }
+
+    .apartment-info-item {
+      padding: 20px;
+      border: 1px solid #e6e1d7;
+      border-radius: 8px;
+      background: #fff;
+      color: #292b25;
+    }
+
+    .apartment-info-item span {
+      display: block;
+      margin-bottom: 8px;
+      color: #77766f;
+      font-size: 14px;
+    }
+
+    .apartment-info-item strong {
+      color: #292b25;
+      font-size: 18px;
+    }
+
+    .apartment-section {
+      margin-top: 36px;
+      color: #e8e6de;
+      line-height: 1.8;
+    }
+
+    .apartment-section h2 {
+      margin: 0 0 16px;
+      color: #fff !important;
+      font-size: 27px;
+      line-height: 1.3;
+    }
+
+    .apartment-section p {
+      margin: 0 0 12px;
+      color: #e0e0d8;
+    }
+
+    .apartment-section ul {
+      margin: 10px 0 18px;
+      padding-left: 24px;
+      color: #e0e0d8;
+    }
+
+    .apartment-section li {
+      margin-bottom: 8px;
+    }
+
+    .apartment-price {
+      margin: 12px 0 22px;
+      color: #d9b66f !important;
+      font-size: 30px;
+      font-weight: 700;
+    }
+
+    .apartment-booking {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 15px 24px;
+      border-radius: 5px;
+      background: #d9b66f;
+      color: #171717;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .apartment-booking:hover {
+      background: #c9a45a;
+    }
+
+    .apartment-note {
+      margin-top: 18px !important;
+      color: #bfc1b7 !important;
+      font-size: 14px;
+    }
+
+    @media (max-width: 650px) {
+      .apartment-page {
+        padding: 26px 16px 45px;
+      }
+
+      .gallery-main {
+        height: 300px;
+      }
+
+      .gallery-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 30px;
+      }
+
+      .gallery-prev { left: 10px; }
+      .gallery-next { right: 10px; }
+
+      .apartment-page .gallery-thumbnails img {
+        flex-basis: 85px;
+        width: 85px;
+        min-width: 85px;
+        height: 65px;
+        min-height: 65px;
+      }
+
+      .apartment-info {
+        grid-template-columns: 1fr;
+      }
+
+      .apartment-section h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="apartment-page">
+    <a class="apartment-back" href="index.html#apartments">← Все квартиры</a>
+
+    <h1>Квартира-студия для двоих на ул. Евгения Савкова, 46/2</h1>
+
+    <p class="apartment-subtitle">
+     20 м² · Академический район · Мичуринский · Екатеринбург
+    </p>
+
+    <div class="apartment-gallery">
+      <div class="gallery-main">
+        <button class="gallery-arrow gallery-prev" id="gallery-prev"
+          type="button" aria-label="Предыдущее фото">‹</button>
+
+        <img
+          class="apartment-main-photo"
+          id="gallery-main"
+          src="images/apartment-7-1.jpg"
+          alt="Квартира-студия для двоих — фото 1"
+        >
+
+        <button class="gallery-arrow gallery-next" id="gallery-next"
+          type="button" aria-label="Следующее фото">›</button>
+
+        <div class="gallery-counter" id="gallery-counter">1 / 13</div>
+      </div>
+
+      <div class="gallery-thumbnails">
+        <img src="images/apartment-7-1.jpg" alt="Фото 1" class="active">
+        <img src="images/apartment-7-2.jpg" alt="Фото 2">
+        <img src="images/apartment-7-3.jpg" alt="Фото 3">
+        <img src="images/apartment-7-4.jpg" alt="Фото 4">
+        <img src="images/apartment-7-6.jpg" alt="Фото 6">
+        <img src="images/apartment-7-7.jpg" alt="Фото 7">
+        <img src="images/apartment-7-8.jpg" alt="Фото 8">
+        <img src="images/apartment-7-9.jpg" alt="Фото 9">
+        <img src="images/apartment-7-11.jpg" alt="Фото 10">
+        <img src="images/apartment-7-12.jpg" alt="Фото 11">
+        <img src="images/apartment-7-13.jpg" alt="Фото 12">
+        <img src="images/apartment-7-14.jpg" alt="Фото 13">
+      </div>
+    </div>
+
+    <div class="apartment-info">
+      <div class="apartment-info-item">
+        <span>Стоимость</span>
+        <strong>От 2000 ₽ / сутки</strong>
+      </div>
+
+      <div class="apartment-info-item">
+        <span>Количество гостей</span>
+        <strong>До 2 гостей</strong>
+      </div>
+
+      <div class="apartment-info-item">
+        <span>Заезд и выезд</span>
+        <strong>14:00 / 12:00</strong>
+      </div>
+    </div>
+
+    <section class="apartment-section">
+      <h2>Об этой квартире</h2>
+
+      <p>
+        Квартира-студия для двоих в Академическом районе Екатеринбурга,
+        в Мичуринском
+      </p>
+
+      <p>
+        В шаговой доступности находится автобусная остановка
+      </p>
+
+      <p>
+        Через дорогу расположен торгово-развлекательный центр «Юла»,
+        где есть продуктовые магазины, магазины хозяйственных товаров и кафе
+      </p>
+    </section>
+
+    <section class="apartment-section">
+      <h2>Удобства</h2>
+
+      <ul>
+        <li>Wi-Fi</li>
+        <li>Микроволновая печь</li>
+        <li>Телевизор</li>
+        <li>Электрический чайник</li>
+        <li>Плита и духовая печь</li>
+        <li>Стиральная машина, фен и утюг</li>
+        <li>Размещение с животными за дополнительную плату — 1 500 ₽</li>
+        <li>Всегда свежее постельное бельё и мягкие полотенца</li>
+        <li>Уборка перед каждым заселением</li>
+      </ul>
+    </section>
+
+    <section class="apartment-section">
+      <h2>Стоимость и условия проживания</h2>
+
+      <p class="apartment-price">От 2000 ₽ / сутки</p>
+
+      <p><strong>Заезд:</strong> с 14:00</p>
+      <p><strong>Выезд:</strong> до 12:00</p>
+      <p><strong>Залог:</strong> 2 000 ₽</p>
+
+      <p>
+        Стоимость проживания может варьироваться в зависимости от дня недели,
+        праздничных и выходных дней, сезона, спроса на жильё,
+        количества гостей и срока проживания
+      </p>
+
+      <h3>Правила проживания</h3>
+
+      <ul>
+        <li>Квартира не сдаётся для вечеринок</li>
+        <li>Курение в квартире строго запрещено</li>
+      </ul>
+    </section>
+
+    <section class="apartment-section">
+      <h2>Бронирование</h2>
+
+      <p>
+        Напишите нам в Telegram, чтобы уточнить свободные даты и стоимость
+      </p>
+
+      <a
+        class="apartment-booking"
+        href="https://t.me/nastaya_miksonova"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Забронировать в Telegram</a>
+
+      <p class="apartment-note">
+        Итоговая стоимость подтверждается при согласовании дат проживания
+      </p>
+    </section>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const mainPhoto = document.getElementById("gallery-main");
+      const thumbnails = Array.from(
+        document.querySelectorAll(".gallery-thumbnails img")
+      );
+      const prevButton = document.getElementById("gallery-prev");
+      const nextButton = document.getElementById("gallery-next");
+      const counter = document.getElementById("gallery-counter");
+
+      if (!mainPhoto || !prevButton || !nextButton ||
+          !counter || thumbnails.length === 0) {
+        console.error("Карусель: не найдены необходимые элементы");
+        return;
+      }
+
+      const photos = thumbnails.map(function (thumbnail) {
+        return thumbnail.getAttribute("src");
+      });
+
+      let currentIndex = 0;
+
+      function showPhoto(index) {
+        currentIndex = (index + photos.length) % photos.length;
+        mainPhoto.src = photos[currentIndex];
+        mainPhoto.alt = "Квартира-студия для двоих — фото " +
+          (currentIndex + 1);
+
+        thumbnails.forEach(function (thumbnail, i) {
+          thumbnail.classList.toggle("active", i === currentIndex);
+        });
+
+        counter.textContent =
+          (currentIndex + 1) + " / " + photos.length;
+      }
+
+      prevButton.addEventListener("click", function () {
+        showPhoto(currentIndex - 1);
+      });
+
+      nextButton.addEventListener("click", function () {
+        showPhoto(currentIndex + 1);
+      });
+
+      thumbnails.forEach(function (thumbnail, index) {
+        thumbnail.addEventListener("click", function () {
+          showPhoto(index);
+        });
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowLeft") {
+          showPhoto(currentIndex - 1);
+        } else if (event.key === "ArrowRight") {
+          showPhoto(currentIndex + 1);
+        }
+      });
+
+      mainPhoto.addEventListener("click", function () {
+        window.open(photos[currentIndex], "_blank", "noopener");
+      });
+
+      showPhoto(0);
+    });
+  </script>
+</body>
+</html>
