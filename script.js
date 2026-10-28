@@ -79,28 +79,30 @@ const apartments = [
   }
 ];
 
+const telegramUrl = "https://t.me/nastya_miksonova";
+const vkUrl = "https://vk.me/write-236946027";
+
 function renderApartments() {
   const container = document.getElementById("apartment-list");
 
   if (!container) {
-    console.error('Не найден элемент #apartment-list');
+    console.error('Не найден контейнер #apartment-list');
     return;
   }
 
   container.innerHTML = apartments.map((apartment) => `
     <article class="apartment-card">
-
-      <a href="${apartment.page}" aria-label="Посмотреть ${apartment.title}">
+      <a class="apartment-card__image-link" href="${apartment.page}">
         <img
           class="apartment-card__image"
           src="${apartment.image}"
           alt="${apartment.title}"
           loading="lazy"
+          onerror="this.alt='Фотография временно недоступна';"
         >
       </a>
 
       <div class="apartment-card__content">
-
         <h3 class="apartment-card__title">${apartment.title}</h3>
 
         <p class="apartment-card__description">
@@ -116,26 +118,24 @@ function renderApartments() {
           Подробнее →
         </a>
 
-        <div style="display:flex; flex-direction:column; gap:10px; margin-top:18px;">
-
+        <div class="apartment-card__buttons">
           <a
-            href="https://t.me/nastya_miksonova"
+            class="apartment-card__button"
+            href="${telegramUrl}"
             target="_blank"
             rel="noopener noreferrer"
-            style="display:flex; align-items:center; justify-content:center; box-sizing:border-box; width:100%; min-height:52px; padding:12px 10px; border-radius:5px; background:#dfb966; color:#171717; text-align:center; text-decoration:none; font-weight:600; font-size:14px;"
           >
             Забронировать в Telegram
           </a>
 
           <a
-            href="https://vk.me/write-236946027"
+            class="apartment-card__button"
+            href="${vkUrl}"
             target="_blank"
             rel="noopener noreferrer"
-            style="display:flex; align-items:center; justify-content:center; box-sizing:border-box; width:100%; min-height:52px; padding:12px 10px; border-radius:5px; background:#dfb966; color:#171717; text-align:center; text-decoration:none; font-weight:600; font-size:14px;"
           >
-            Написать нам ВКонтакте
+            Забронировать ВКонтакте
           </a>
-
         </div>
       </div>
     </article>
