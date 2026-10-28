@@ -4,22 +4,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Квартиры и апартаменты посуточно в Екатеринбурге. Удобное бронирование и комфортное проживание.">
-  <title>Квартиры посуточно в Екатеринбурге | Anastaya Apart</title>
-  <link rel="stylesheet" href="style.css">
+
+  <meta name="description" content="Квартиры и апартаменты посуточно в Екатеринбурге. Уютное жильё для отдыха, работы и путешествий.">
+
+  <meta name="theme-color" content="#202522">
+
+  <title>ANASTAY APART — квартиры посуточно в Екатеринбурге</title>
+
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
+
 <body>
   <header class="header">
     <div class="container header__inner">
 
+      <a class="logo" href="./" aria-label="ANASTAY APART — главная">
+        <img src="logo.png" alt="ANASTAY APART">
+        <span class="logo__text">ANASTAY <span>APART</span></span>
+      </a>
 
-<a class="logo" href="#">
-    <img src="images/logo.png" alt="Логотип АНАСТАСИЯ APART">
-    <span class="logo__text"><span class="logo__name">ANASTAY</span><span
-</a>
-
-
-      <nav class="nav">
+      <nav class="nav" aria-label="Основная навигация">
         <a href="#apartments">Апартаменты</a>
         <a href="#about">О нас</a>
         <a href="#contacts">Контакты</a>
@@ -28,51 +32,198 @@
       <a class="header__phone" href="tel:+79089141029">
         +7 (908) 914-10-29
       </a>
+
     </div>
   </header>
 
   <main>
-    <section class="hero">
+    <section
+      class="hero"
+      style="background-image: linear-gradient(90deg, rgba(24,29,26,.94), rgba(24,29,26,.55)), url('hero.jpg'); background-position: center; background-size: cover; background-repeat: no-repeat;"
+    >
       <div class="container hero__content">
         <p class="eyebrow">ANASTAY · ЕКАТЕРИНБУРГ</p>
+
         <h1>Пространство для вашего отдыха</h1>
+
         <p class="hero__text">
           Квартиры и апартаменты посуточно
           для отдыха, работы и путешествий.
         </p>
-        <a class="button" href="#apartments">Выбрать апартаменты</a>
+
+        <a class="button" href="#apartments">
+          Выбрать апартаменты
+        </a>
       </div>
     </section>
 
     <section class="apartments section" id="apartments">
       <div class="container">
+
         <p class="eyebrow">НАШИ ВАРИАНТЫ</p>
+
         <h2>Выберите свои апартаменты</h2>
+
         <p class="section__text">
           Уютные квартиры для комфортного проживания в Екатеринбурге.
         </p>
 
-        <div class="apartments__grid" id="apartment-list"></div>
+        <div class="apartments__grid" id="apartment-list">
+
+          <article class="apartment-card">
+            <a href="apartment-1.html" aria-label="Подробнее о квартире на Репина, 109">
+              <img class="apartment-card__image" src="apartment-1-6.jpg" alt="Квартира на улице Репина, 109" loading="lazy">
+            </a>
+            <div class="apartment-card__content">
+              <h3>ул. Репина, 109</h3>
+              <p>Заселение с 15:00, выезд до 12:00 · до 4 гостей</p>
+              <p class="apartment-card__price">3 200 ₽ <span>/ сутки</span></p>
+              <a class="apartment-card__link" href="apartment-1.html">Подробнее →</a>
+            </div>
+          </article>
+
+          <article class="apartment-card">
+            <a href="apartment-2.html" aria-label="Подробнее о квартире на Репина, 109">
+              <img class="apartment-card__image" src="apartment-2-1.jpg" alt="Квартира на улице Репина, 109" loading="lazy">
+            </a>
+            <div class="apartment-card__content">
+              <h3>ул. Репина, 109</h3>
+              <p>Заселение с 16:00, выезд до 14:00 · до 4 гостей</p>
+              <p class="apartment-card__price">3 100 ₽ <span>/ сутки</span></p>
+              <a class="apartment-card__link" href="apartment-2.html">Подробнее →</a>
+            </div>
+          </article>
+
+          <article class="apartment-card">
+            <a href="apartment-3.html" aria-label="Подробнее о квартире на Репина, 109">
+              <img class="apartment-card__image" src="apartment-3-1.jpg" alt="Квартира на улице Репина, 109" loading="lazy">
+            </a>
+            <div class="apartment-card__content">
+              <h3>ул. Репина, 109</h3>
+              <p>Заселение с 15:00, выезд до 13:00 · до 4 гостей</p>
+              <p class="apartment-card__price">3 100 ₽ <span>/ сутки</span></p>
+              <a class="apartment-card__link" href="apartment-3.html">Подробнее →</a>
+            </div>
+          </article>
+
+          <article class="apartment-card">
+            <a href="apartment-4.html" aria-label="Подробнее о квартире на Савкова, 44А">
+              <img class="apartment-card__image" src="apartment-4-1.jpg" alt="Квартира на улице Евгения Савкова, 44А" loading="lazy">
+            </a>
+            <div class="apartment-card__content">
+              <h3>ул. Евгения Савкова, 44А</h3>
+              <p>Заселение с 13:00, выезд до 10:00 · до 4 гостей</p>
+              <p class="apartment-card__price">2 350 ₽ <span>/ сутки</span></p>
+              <a class="apartment-card__link" href="apartment-4.html">Подробнее →</a>
+            </div>
+          </article>
+
+          <article class="apartment-card">
+            <a href="apartment-5.html" aria-label="Подробнее о квартире на Савкова, 46">
+              <img class="apartment-card__image" src="apartment-5-1.jpg" alt="Квартира на улице Евгения Савкова, 46" loading="lazy">
+            </a>
+            <div class="apartment-card__content">
+              <h3>ул. Евгения Савкова, 46</h3>
+              <p>Заселение с 14:00, выезд до 12:00 · до 2 гостей</p>
+              <p class="apartment-card__price">2 000 ₽ <span>/ сутки</span></p>
+              <a class="apartment-card__link" href="apartment-5.html">Подробнее →</a>
+            </div>
+          </article>
+
+          <article class="apartment-card">
+            <a href="apartment-6.html" aria-label="Подробнее о квартире на Савкова, 46">
+              <img class="apartment-card__image" src="apartment-6-1.jpg" alt="Квартира на улице Евгения Савкова, 46" loading="lazy">
+            </a>
+            <div class="apartment-card__content">
+              <h3>ул. Евгения Савкова, 46</h3>
+              <p>Заселение с 13:00, выезд до 11:00 · до 2 гостей</p>
+              <p class="apartment-card__price">2 000 ₽ <span>/ сутки</span></p>
+              <a class="apartment-card__link" href="apartment-6.html">Подробнее →</a>
+            </div>
+          </article>
+
+          <article class="apartment-card">
+            <a href="apartment-7.html" aria-label="Подробнее о квартире на Савкова, 46/2">
+              <img class="apartment-card__image" src="apartment-7-1.jpg" alt="Квартира на улице Евгения Савкова, 46/2" loading="lazy">
+            </a>
+            <div class="apartment-card__content">
+              <h3>ул. Евгения Савкова, 46/2</h3>
+              <p>Заселение с 14:00, выезд до 12:00 · до 2 гостей</p>
+              <p class="apartment-card__price">2 000 ₽ <span>/ сутки</span></p>
+              <a class="apartment-card__link" href="apartment-7.html">Подробнее →</a>
+            </div>
+          </article>
+
+          <article class="apartment-card">
+            <a href="apartment-8.html" aria-label="Подробнее о квартире на Савкова, 44А">
+              <img class="apartment-card__image" src="apartment-8-1.jpg" alt="Квартира на улице Евгения Савкова, 44А" loading="lazy">
+            </a>
+            <div class="apartment-card__content">
+              <h3>ул. Евгения Савкова, 44А</h3>
+              <p>Заселение с 15:00, выезд до 13:00 · до 6 гостей</p>
+              <p class="apartment-card__price">2 300 ₽ <span>/ сутки</span></p>
+              <a class="apartment-card__link" href="apartment-8.html">Подробнее →</a>
+            </div>
+          </article>
+
+          <article class="apartment-card">
+            <a href="apartment-9.html" aria-label="Подробнее о квартире на Савкова, 46">
+              <img class="apartment-card__image" src="apartment-9-1.jpg" alt="Квартира на улице Евгения Савкова, 46" loading="lazy">
+            </a>
+            <div class="apartment-card__content">
+              <h3>ул. Евгения Савкова, 46</h3>
+              <p>Заселение с 15:00, выезд до 13:00 · до 2 гостей</p>
+              <p class="apartment-card__price">2 000 ₽ <span>/ сутки</span></p>
+              <a class="apartment-card__link" href="apartment-9.html">Подробнее →</a>
+            </div>
+          </article>
+
+          <article class="apartment-card">
+            <a href="apartment-10.html" aria-label="Подробнее о квартире на Савкова, 44Б/2">
+              <img class="apartment-card__image" src="apartment-10-1.jpg" alt="Квартира на улице Евгения Савкова, 44Б/2" loading="lazy">
+            </a>
+            <div class="apartment-card__content">
+              <h3>ул. Евгения Савкова, 44Б/2</h3>
+              <p>Заселение с 14:00, выезд до 12:00 · до 2 гостей</p>
+              <p class="apartment-card__price">2 000 ₽ <span>/ сутки</span></p>
+              <a class="apartment-card__link" href="apartment-10.html">Подробнее →</a>
+            </div>
+          </article>
+
+          <article class="apartment-card">
+            <a href="apartment-11.html" aria-label="Подробнее о квартире на Энтузиастов, 36Б/3">
+              <img class="apartment-card__image" src="apartment-11-1.jpg" alt="Квартира на улице Энтузиастов, 36Б/3" loading="lazy">
+            </a>
+            <div class="apartment-card__content">
+              <h3>ул. Энтузиастов, 36Б/3</h3>
+              <p>Заселение с 15:00, выезд до 12:00 · до 4 гостей</p>
+              <p class="apartment-card__price">3 400 ₽ <span>/ сутки</span></p>
+              <a class="apartment-card__link" href="apartment-11.html">Подробнее →</a>
+            </div>
+          </article>
+
+        </div>
       </div>
     </section>
 
     <section class="about section" id="about">
       <div class="container about__content">
         <p class="eyebrow">ANASTAY</p>
+
         <h2>Комфорт начинается с деталей</h2>
+
         <p>
-          Мы занимаемся посуточной сдачей квартир в Екатеринбурге
-          с 2024 года, предлагая удобные и проверенные варианты
-          размещения для гостей и жителей нашего города.
+          Мы занимаемся посуточной сдачей квартир в Екатеринбурге,
+          предлагая удобные варианты размещения для гостей и жителей города.
         </p>
+
         <p>
-          В нашем портфеле представлены квартиры разных категорий —
-          от доступных эконом-вариантов до комфортного жилья
-          с улучшенными условиями.
+          В нашем портфеле представлены квартиры для разных потребностей —
+          от компактных вариантов для двоих до апартаментов для семьи.
         </p>
+
         <p>
-          Наша задача — предоставить надёжное и комфортное жильё
-          по разумной цене.
+          Наша задача — предоставить комфортное жильё по разумной цене.
         </p>
       </div>
     </section>
@@ -80,24 +231,37 @@
     <section class="contacts section" id="contacts">
       <div class="container contacts__content">
         <p class="eyebrow">МЫ НА СВЯЗИ</p>
+
         <h2>Поможем выбрать апартаменты</h2>
+
         <p>Свяжитесь с нами, чтобы уточнить условия проживания.</p>
-        <a class="button" href="tel:+79089141029">Позвонить нам</a>
-        <a class="social-link" href="https://vk.ru/anastayapart"
-           target="_blank" rel="noopener noreferrer">Мы ВКонтакте</a>
+
+        <a class="button" href="tel:+79089141029">
+          Позвонить нам
+        </a>
+
+        <a
+          class="social-link"
+          href="https://vk.ru/anastayapart"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Мы ВКонтакте
+        </a>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container footer__inner">
-      <a class="logo" href="#">ANASTAY</span></a>
+      <a class="logo" href="./">ANASTAY APART</a>
+
       <p>Квартиры и апартаменты посуточно в Екатеринбурге</p>
+
       <a href="tel:+79089141029">+7 (908) 914-10-29</a>
-      <p>© <span id="year"></span> Anastay</p>
+
+      <p>© <span id="year">2026</span> Anastay</p>
     </div>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
