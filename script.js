@@ -4,7 +4,7 @@ const apartments = [
 {
   title: "ул. Репина, 109",
   price: 3200,
-  image: "images/apartment-1-6.jpg",
+  image: "apartment-1-6.jpg",
   description: "Заселение с 15:00 выезд до 12:00 | до 4 гостей",
   page: "apartment-1.html"
 },
@@ -12,70 +12,70 @@ const apartments = [
   {
     title: "ул. Репина, 109",
     price: 3100,
-    image: "images/apartment-2-1.jpg",
+    image: "apartment-2-1.jpg",
     description: "Заселение с 16:00 выезд до 14:00 | до 4 гостей",
     page: "apartment-2.html"
   },
   {
     title: "ул. Репина 109",
     price: 3100,
-    image: "images/apartment-3-1.jpg",
+    image: "apartment-3-1.jpg",
     description: "Заселение с 15:00 выезд до 13:00 | до 4 гостей",
     page: "apartment-3.html"
   },
   {
     title: "ул. Евгения Савкова, 44А",
     price: 2350,
-    image: "images/apartment-4-1.jpg",
+    image: "apartment-4-1.jpg",
     description: "Заселение с 13:00 выезд до 10:00 | до 4 гостей",
     page: "apartment-4.html"
   },
   {
     title: "ул. Евгения Савкова, 46",
     price: 2000,
-    image: "images/apartment-5-1.jpg",
+    image: "apartment-5-1.jpg",
     description: "Заселение с 14:00 выезд до 12:00 | до 2 гостей",
     page: "apartment-5.html"
   },
   {
     title: "ул. Евгения Савкова, 46",
     price: 2000,
-    image: "images/apartment-6-1.jpg",
+    image: "apartment-6-1.jpg",
     description: "Заселение с 13:00 выезд до 11:00 | до 2 гостей",
     page: "apartment-6.html"
   },
   {
     title: "ул. Евгения Савкова, 46/2",
     price: 2000,
-    image: "images/apartment-7-1.jpg",
+    image: "apartment-7-1.jpg",
     description: "Заселение с 14:00 выезд до 12:00 | до 2 гостей",
     page: "apartment-7.html"
   },
     {
     title: "ул. Евгения Савкова, 44А",
     price: 2300,
-    image: "images/apartment-8-1.jpg",
+    image: "apartment-8-1.jpg",
     description: "Заселение с 15:00 выезд до 13:00 | до 6 гостей",
     page: "apartment-8.html"
   },
     {
     title: "ул. Евгения Савкова, 46",
     price: 2000,
-    image: "images/apartment-9-1.jpg",
+    image: "apartment-9-1.jpg",
     description: "Заселение с 15:00 выезд до 13:00 | до 2 гостей",
     page: "apartment-9.html"
   },
     {
     title: "ул. Евгения Савкова, 44Б/2",
     price: 2000,
-    image: "images/apartment-10-1.jpg",
+    image: "apartment-10-1.jpg",
     description: "Заселение с 14:00 выезд до 12:00 | до 2 гостей",
     page: "apartment-10.html"
   },
     {
     title: "ул. Энтузиастов, 36Б/3",
     price: 3400,
-    image: "images/apartment-11-1.jpg",
+    image: "apartment-11-1.jpg",
     description: "Заселение с 15:00 выезд до 12:00 | до 4 гостей",
     page: "apartment-11.html"
   }
