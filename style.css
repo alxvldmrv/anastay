@@ -1,55 +1,60 @@
 
 :root {
-  --bg: #202522;
-  --bg-light: #292f2b;
-  --gold: #d7b46a;
-  --gold-light: #ead39b;
-  --text: #f7f5ef;
-  --muted: #b9bdb7;
-  --border: rgba(255, 255, 255, 0.12);
+  --background: #f5f3ed;
+  --surface: #ffffff;
+  --dark: #202522;
+  --dark-soft: #29312c;
+  --gold: #dfb966;
+  --gold-hover: #cda451;
+  --text: #282b28;
+  --muted: #73766f;
+  --border: #e7e3da;
+  --radius: 5px;
+  --container: 1190px;
 }
 
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 body {
-  background: var(--bg);
+  margin: 0;
+  background: var(--background);
   color: var(--text);
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
   line-height: 1.6;
 }
 
 a {
   color: inherit;
-  text-decoration: none;
 }
 
-button,
-a {
-  -webkit-tap-highlight-color: transparent;
+img {
+  max-width: 100%;
 }
 
 .container {
-  width: min(1180px, calc(100% - 48px));
-  margin: 0 auto;
+  width: min(var(--container), calc(100% - 40px));
+  margin-inline: auto;
 }
+
+/* Шапка */
 
 .header {
   position: relative;
-  z-index: 10;
-  border-bottom: 1px solid var(--border);
-  background: var(--bg);
+  z-index: 5;
+  background: var(--dark);
+  color: #fff;
 }
 
 .header__inner {
-  min-height: 88px;
+  min-height: 86px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -57,64 +62,108 @@ a {
 }
 
 .logo {
-  flex-shrink: 0;
-  font-size: 21px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  text-decoration: none;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
 }
 
-.logo span {
+.logo img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.logo__text {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.logo__name {
+  font-size: 19px;
+}
+
+.logo__subtitle,
+.logo__text > span:not(.logo__name) {
   color: var(--gold);
-  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 3px;
 }
 
 .nav {
   display: flex;
   align-items: center;
-  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 28px;
 }
 
-.nav a,
-.header__phone {
+.nav a {
+  color: #f5f4ef;
+  text-decoration: none;
   font-size: 14px;
-  transition: color 0.2s ease;
+  transition: color .2s ease;
 }
 
-.nav a:hover,
-.header__phone:hover,
-.social-link:hover {
+.nav a:hover {
   color: var(--gold);
 }
 
 .header__phone {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 700;
   white-space: nowrap;
 }
 
+/* Кнопки */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 14px 26px;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--gold);
+  color: #171917;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.button:hover {
+  background: var(--gold-hover);
+  transform: translateY(-1px);
+}
+
+/* Первый экран */
+
 .hero {
-  min-height: 600px;
+  min-height: 510px;
   display: flex;
   align-items: center;
-  position: relative;
-  overflow: hidden;
   background:
-    linear-gradient(
-      90deg,
-      rgba(24, 29, 26, 0.96) 0%,
-      rgba(24, 29, 26, 0.82) 48%,
-      rgba(24, 29, 26, 0.35) 100%
-    ),
-    url("images/hero.jpg") center 55% / cover no-repeat,
-    var(--bg-light);
+    linear-gradient(90deg, rgba(24, 29, 26, .90), rgba(24, 29, 26, .40)),
+    url("hero.jpg") center / cover no-repeat;
+  color: #fff;
 }
 
 .hero__content {
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 75px;
+  padding-bottom: 75px;
 }
 
 .eyebrow {
-  margin-bottom: 18px;
-  color: var(--gold);
+  margin: 0 0 18px;
+  color: #d5a84d;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 3px;
@@ -122,84 +171,68 @@ a {
 }
 
 .hero h1 {
-  max-width: 760px;
+  max-width: 700px;
+  margin: 0 0 22px;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(42px, 6vw, 76px);
+  font-size: clamp(40px, 5vw, 66px);
   font-weight: 400;
-  line-height: 1.12;
-  letter-spacing: -1.5px;
+  line-height: 1.1;
 }
 
 .hero__text {
-  max-width: 500px;
-  margin-top: 24px;
-  color: #dedfd9;
-  font-size: 17px;
+  max-width: 580px;
+  margin: 0 0 30px;
+  color: #e1e2dc;
+  font-size: 18px;
 }
 
-.button {
-  min-height: 54px;
-  margin-top: 32px;
-  padding: 15px 26px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--gold);
-  color: #20231f;
-  border: 1px solid var(--gold);
-  font-size: 14px;
-  font-weight: 700;
-  transition:
-    background 0.2s ease,
-    color 0.2s ease;
-}
-
-.button:hover {
-  background: var(--gold-light);
-  border-color: var(--gold-light);
-}
+/* Секции */
 
 .section {
-  padding: 100px 0;
+  padding: 88px 0;
 }
 
-.apartments {
-  background: #f5f3ed;
-  color: #252923;
-}
-
-.apartments .eyebrow,
-.about .eyebrow,
-.contacts .eyebrow {
-  margin-bottom: 14px;
-}
-
-.apartments h2,
+.section h2,
 .about h2,
 .contacts h2 {
+  margin: 0 0 20px;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(32px, 4vw, 48px);
+  font-size: clamp(32px, 4vw, 46px);
   font-weight: 400;
   line-height: 1.2;
 }
 
 .section__text {
-  margin-top: 16px;
-  color: #686b64;
+  margin: 0 0 38px;
+  color: var(--muted);
+}
+
+/* Карточки квартир */
+
+.apartments {
+  background: var(--background);
 }
 
 .apartments__grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
-  margin-top: 42px;
+  align-items: stretch;
 }
 
 .apartment-card {
   min-width: 0;
   overflow: hidden;
-  background: #fff;
-  border: 1px solid #e8e5dc;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.apartment-card__image-link {
+  display: block;
+  overflow: hidden;
+  background: #e8e5de;
 }
 
 .apartment-card__image {
@@ -207,73 +240,190 @@ a {
   width: 100%;
   height: 250px;
   object-fit: cover;
-  background: #e5e2d9;
+  transition: transform .3s ease;
+}
+
+.apartment-card__image-link:hover .apartment-card__image {
+  transform: scale(1.025);
 }
 
 .apartment-card__content {
-  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 22px 24px 24px;
 }
 
-.apartment-card h3 {
+.apartment-card__title {
+  min-height: 56px;
+  margin: 0 0 18px;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 23px;
+  font-size: 24px;
   font-weight: 400;
-  line-height: 1.35;
+  line-height: 1.3;
 }
 
-.apartment-card p {
-  margin-top: 12px;
-  color: #686b64;
+.apartment-card__description {
+  min-height: 48px;
+  margin: 0 0 18px;
+  color: #666a64;
   font-size: 14px;
+  line-height: 1.65;
 }
 
-.apartment-card__link {
-  display: inline-block;
-  margin-top: 20px;
-  color: #80652d;
+.apartment-card__price {
+  margin: 0 0 18px;
   font-size: 14px;
   font-weight: 700;
 }
 
+.apartment-card__price span {
+  color: #6f726c;
+  font-weight: 400;
+}
+
+.apartment-card__link {
+  display: inline-block;
+  margin-top: auto;
+  margin-bottom: 14px;
+  padding-top: 8px;
+  color: #8d6520;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.apartment-card__link:hover {
+  color: #b08435;
+}
+
+/* Две золотые кнопки в каждой карточке */
+
+.apartment-card__buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.apartment-card__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 52px;
+  padding: 12px 10px;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--gold);
+  color: #171917;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.apartment-card__button:hover {
+  background: var(--gold-hover);
+  transform: translateY(-1px);
+}
+
+/* О нас */
+
 .about {
-  background: var(--bg-light);
+  background: #ebe8df;
 }
 
 .about__content {
-  max-width: 780px;
+  max-width: 850px;
 }
 
-.about__content > p:not(.eyebrow) {
-  margin-top: 20px;
-  color: var(--muted);
-  font-size: 16px;
+.about__content p:not(.eyebrow) {
+  max-width: 760px;
+  color: #62665f;
 }
+
+/* Контакты */
 
 .contacts {
+  background: var(--dark);
+  color: #f8f7f2;
   text-align: center;
-  background: var(--bg);
 }
 
 .contacts__content {
-  max-width: 700px;
+  max-width: 760px;
 }
 
 .contacts__content > p:not(.eyebrow) {
-  margin-top: 18px;
-  color: var(--muted);
+  color: #c8ccc5;
 }
 
-.social-link {
-  display: block;
-  width: fit-content;
-  margin: 22px auto 0;
-  color: var(--gold);
-  transition: color 0.2s ease;
+.contact-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 26px 0 18px;
 }
+
+.contact-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 14px 24px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  text-align: center;
+  font-weight: 700;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.contact-button:hover {
+  transform: translateY(-1px);
+}
+
+.contact-button--telegram {
+  background: #229ed9;
+  color: #fff;
+}
+
+.contact-button--telegram:hover {
+  background: #1889bf;
+}
+
+.contact-button--vk {
+  background: #0077ff;
+  color: #fff;
+}
+
+.contact-button--vk:hover {
+  background: #0066dc;
+}
+
+.contact-button--gold {
+  margin-top: 12px;
+  background: var(--gold);
+  color: #171917;
+}
+
+.contact-button--gold:hover {
+  background: var(--gold-hover);
+}
+
+/* Подвал */
 
 .footer {
   padding: 34px 0;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(255, 255, 255, .12);
+  background: #202522;
+  color: #d9dcd6;
 }
 
 .footer__inner {
@@ -284,227 +434,132 @@ a {
   gap: 20px;
 }
 
-.footer__inner p,
-.footer__inner > a:not(.logo) {
-  color: var(--muted);
-  font-size: 12px;
+.footer__inner p {
+  margin: 0;
+  font-size: 13px;
 }
 
-@media (max-width: 900px) {
+.footer__socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.footer__socials a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer__socials a:hover {
+  color: var(--gold);
+}
+
+/* Планшеты */
+
+@media (max-width: 950px) {
   .header__inner {
-    min-height: 76px;
     flex-wrap: wrap;
-    padding-top: 18px;
-    padding-bottom: 18px;
-    gap: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
   }
 
   .nav {
     order: 3;
     width: 100%;
-    gap: 22px;
+    gap: 20px;
   }
 
   .apartments__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .section {
-    padding: 76px 0;
+  .apartment-card__image {
+    height: 230px;
   }
 }
 
+/* Телефоны */
+
 @media (max-width: 600px) {
   .container {
-    width: calc(100% - 32px);
+    width: calc(100% - 28px);
   }
 
-  .logo {
-    font-size: 17px;
-    letter-spacing: 1.5px;
+  .header__inner {
+    gap: 14px;
   }
 
   .header__phone {
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .nav {
-    justify-content: space-between;
-    gap: 12px;
+    justify-content: flex-start;
+    gap: 16px;
   }
 
   .nav a {
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .hero {
-    min-height: 520px;
-    background-position: 58% center;
+    min-height: 430px;
   }
 
   .hero__content {
-    padding-top: 64px;
-    padding-bottom: 64px;
+    padding-top: 55px;
+    padding-bottom: 55px;
   }
 
   .hero h1 {
-    font-size: clamp(38px, 10vw, 54px);
+    font-size: 42px;
   }
 
   .hero__text {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .section {
-    padding: 64px 0;
+    padding: 58px 0;
   }
 
   .apartments__grid {
     grid-template-columns: 1fr;
     gap: 20px;
-    margin-top: 30px;
   }
 
   .apartment-card__image {
-    height: 240px;
+    height: 250px;
   }
 
   .apartment-card__content {
     padding: 20px;
   }
 
+  .apartment-card__title {
+    min-height: auto;
+  }
+
+  .apartment-card__description {
+    min-height: auto;
+  }
+
+  .apartment-card__button {
+    min-height: 50px;
+    font-size: 13px;
+  }
+
+  .contact-buttons {
+    flex-direction: column;
+  }
+
+  .contact-button {
+    width: 100%;
+  }
+
   .footer__inner {
     flex-direction: column;
     align-items: flex-start;
   }
-}
-
-
-.header .logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-}
-
-.header .logo img {
-    display: block;
-    width: 55px;
-    height: 55px;
-    object-fit: contain;
-    flex-shrink: 0;
-}
-
-.header .logo span {
-    font-size: 20px;
-    font-weight: 600;
-    white-space: nowrap;
-}
-
-/* Логотип и название ANASTAYA APART */
-.header .logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    flex-shrink: 0;
-}
-
-.header .logo img {
-    width: 42px;
-    height: 42px;
-    object-fit: contain;
-    flex-shrink: 0;
-}
-
-.header .logo__text {
-    color: #f5f3ed;
-    font-size: 20px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    white-space: nowrap;
-}
-
-.header .logo__text span {
-    color: #d9b568;
-}
-
-.apartment-card__price {
-    margin: 16px 0;
-    color: #a77b32;
-    font-size: 22px;
-    font-weight: 700;
-}
-
-.apartment-card__price span {
-    color: #777;
-    font-size: 14px;
-    font-weight: 400;
-}
-
-
-/* Кнопка бронирования в Telegram */
-.apartment-card__telegram {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  box-sizing: border-box;
-  margin-top: 16px;
-  padding: 14px 16px;
-  background: #d9b66f;
-  color: #202722;
-  text-align: center;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 600;
-  border: 1px solid #d9b66f;
-  border-radius: 4px;
-  transition: background 0.25s ease, color 0.25s ease;
-}
-
-.apartment-card__telegram:hover {
-  background: #202722;
-  color: #d9b66f;
-  border-color: #d9b66f;
-}
-/* Выравнивание содержимого всех карточек */
-.apartment-card {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.apartment-card__content {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.apartment-card__content h3 {
-  min-height: 64px;
-}
-
-.apartment-card__content > p:first-of-type {
-  min-height: 48px;
-}
-
-.apartment-card__price {
-  margin-top: 16px;
-  min-height: 24px;
-}
-
-.apartment-card__link {
-  margin-top: auto;
-  padding-top: 16px;
-}
-.apartment-card__vk {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  box-sizing: border-box;
-  margin-top: 10px;
-  text-align: center;
-  text-decoration: none;
 }
