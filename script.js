@@ -79,58 +79,60 @@ const apartments = [
   }
 ];
 
-const apartmentList = document.querySelector("#apartment-list");
+function renderApartments() {
+  const container = document.getElementById("apartment-list");
 
-if (apartmentList) {
-  apartmentList.innerHTML = apartments.map((apartment) => `
-    <article class="apartment-card">
-      <a href="${apartment.page}" aria-label="Открыть ${apartment.title}">
-        <img
-          class="apartment-card__image"
-          src="${apartment.image}"
-          alt="${apartment.title}"
-          loading="lazy"
-          onerror="this.onerror=null; this.style.display='none';"
+  if (!container) {
+    console.error('Не найден элемент с id="apartment-list". Проверь index.html.');
+    return;
+  }
+
+  container.innerHTML = apartments.map((apartment) => {
+    const imagePath = apartment.image;
+    const pagePath = apartment.page;
+
+    return `
+      <article class="apartment-card">
+        <a
+          class="apartment-card__image-link"
+          href="${pagePath}"
+          aria-label="Посмотреть квартиру: ${apartment.title}"
         >
-      </a>
+          <img
+            class="apartment-card__image"
+            src="${imagePath}"
+            alt="${apartment.title}"
+            loading="lazy"
+            onerror="this.onerror=null; this.style.display='none';"
+          >
+        </a>
 
-      <div class="apartment-card__content">
-        <h3>${apartment.title}</h3>
+        <div class="apartment-card__content">
+          <h3 class="apartment-card__title">${apartment.title}</h3>
 
-        <p>${apartment.description}</p>
+          <p class="apartment-card__description">
+            ${apartment.description}
+          </p>
 
-        <p class="apartment-card__price">
-          ${apartment.price.toLocaleString("ru-RU")}
-          ₽ <span>/ сутки</span>
-        </p>
+          <p class="apartment-card__price">
+            ${apartment.price.toLocaleString("ru-RU")} ₽
+            <span> / сутки</span>
+          </p>
 
-        <a
-          class="apartment-card__link"
-          href="${apartment.page}"
-        >Подробнее →</a>
-
-        <a
-          class="apartment-card__telegram"
-          href="https://t.me/nastya_miksonova?text=${encodeURIComponent(
-            `Здравствуйте! Хочу забронировать квартиру «${apartment.title}». Стоимость — ${apartment.price.toLocaleString("ru-RU")} ₽/сутки. Подскажите, пожалуйста, свободна ли она на нужные даты?`
-          )}"
-          target="_blank"
-          rel="noopener noreferrer"
-        >Забронировать в Telegram</a>
-
-        <a
-          class="apartment-card__telegram apartment-card__vk"
-          href="https://vk.me/write-236946027"
-          target="_blank"
-          rel="noopener noreferrer"
-        >Написать нам ВКонтакте</a>
-      </div>
-    </article>
-  `).join("");
+          <a
+            class="apartment-card__link"
+            href="${pagePath}"
+          >
+            Подробнее →
+          </a>
+        </div>
+      </article>
+    `;
+  }).join("");
 }
 
-const year = document.querySelector("#year");
-
-if (year) {
-  year.textContent = new Date().getFullYear();
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", renderApartments);
+} else {
+  renderApartments();
 }
