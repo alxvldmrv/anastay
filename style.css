@@ -1,10 +1,3 @@
-
-/* ==================================================
-   ANASTAY APART — единый чистый файл стилей
-   Главная: светлые карточки, тёмно-зелёные секции
-   Страницы квартир: полностью тёмный фон
-   ================================================== */
-
 :root {
   --dark: #202522;
   --dark-soft: #29312c;
@@ -103,13 +96,8 @@ button {
   display: inline-flex;
   flex-direction: column;
   line-height: 1.2;
-}
-
-.logo__text span {
-  color: var(--gold);
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 3px;
+  color: #dfb966;
+  font-weight: 700;
 }
 
 .nav {
