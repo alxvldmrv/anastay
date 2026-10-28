@@ -83,52 +83,63 @@ function renderApartments() {
   const container = document.getElementById("apartment-list");
 
   if (!container) {
-    console.error('Не найден элемент с id="apartment-list". Проверь index.html.');
+    console.error('Не найден элемент #apartment-list');
     return;
   }
 
-  container.innerHTML = apartments.map((apartment) => {
-    const imagePath = apartment.image;
-    const pagePath = apartment.page;
+  container.innerHTML = apartments.map((apartment) => `
+    <article class="apartment-card">
 
-    return `
-      <article class="apartment-card">
-        <a
-          class="apartment-card__image-link"
-          href="${pagePath}"
-          aria-label="Посмотреть квартиру: ${apartment.title}"
+      <a href="${apartment.page}" aria-label="Посмотреть ${apartment.title}">
+        <img
+          class="apartment-card__image"
+          src="${apartment.image}"
+          alt="${apartment.title}"
+          loading="lazy"
         >
-          <img
-            class="apartment-card__image"
-            src="${imagePath}"
-            alt="${apartment.title}"
-            loading="lazy"
-            onerror="this.onerror=null; this.style.display='none';"
-          >
+      </a>
+
+      <div class="apartment-card__content">
+
+        <h3 class="apartment-card__title">${apartment.title}</h3>
+
+        <p class="apartment-card__description">
+          ${apartment.description}
+        </p>
+
+        <p class="apartment-card__price">
+          ${apartment.price.toLocaleString("ru-RU")} ₽
+          <span>/ сутки</span>
+        </p>
+
+        <a class="apartment-card__link" href="${apartment.page}">
+          Подробнее →
         </a>
 
-        <div class="apartment-card__content">
-          <h3 class="apartment-card__title">${apartment.title}</h3>
-
-          <p class="apartment-card__description">
-            ${apartment.description}
-          </p>
-
-          <p class="apartment-card__price">
-            ${apartment.price.toLocaleString("ru-RU")} ₽
-            <span> / сутки</span>
-          </p>
+        <div style="display:flex; flex-direction:column; gap:10px; margin-top:18px;">
 
           <a
-            class="apartment-card__link"
-            href="${pagePath}"
+            href="https://t.me/nastya_miksonova"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="display:flex; align-items:center; justify-content:center; box-sizing:border-box; width:100%; min-height:52px; padding:12px 10px; border-radius:5px; background:#dfb966; color:#171717; text-align:center; text-decoration:none; font-weight:600; font-size:14px;"
           >
-            Подробнее →
+            Забронировать в Telegram
           </a>
+
+          <a
+            href="https://vk.me/write-236946027"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="display:flex; align-items:center; justify-content:center; box-sizing:border-box; width:100%; min-height:52px; padding:12px 10px; border-radius:5px; background:#dfb966; color:#171717; text-align:center; text-decoration:none; font-weight:600; font-size:14px;"
+          >
+            Написать нам ВКонтакте
+          </a>
+
         </div>
-      </article>
-    `;
-  }).join("");
+      </div>
+    </article>
+  `).join("");
 }
 
 if (document.readyState === "loading") {
