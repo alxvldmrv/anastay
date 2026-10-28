@@ -1,15 +1,24 @@
 
+/* ==================================================
+   ANASTAY APART — единый чистый файл стилей
+   Главная: светлые карточки, тёмно-зелёные секции
+   Страницы квартир: полностью тёмный фон
+   ================================================== */
+
 :root {
-  --background: #f5f3ed;
-  --surface: #ffffff;
   --dark: #202522;
   --dark-soft: #29312c;
+  --dark-card: #29312c;
   --gold: #dfb966;
   --gold-hover: #cda451;
-  --text: #282b28;
-  --muted: #73766f;
-  --border: #e7e3da;
-  --radius: 5px;
+  --white: #f5f3ed;
+  --muted: #c8ccc5;
+  --light-bg: #f5f3ed;
+  --light-card: #ffffff;
+  --light-text: #282b28;
+  --light-muted: #686b64;
+  --border-dark: rgba(255, 255, 255, 0.13);
+  --border-light: #e7e3da;
   --container: 1190px;
 }
 
@@ -24,19 +33,25 @@ html {
 
 body {
   margin: 0;
-  background: var(--background);
-  color: var(--text);
+  background: var(--dark);
+  color: var(--white);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   line-height: 1.6;
 }
 
-a {
-  color: inherit;
-}
-
 img {
   max-width: 100%;
+}
+
+a {
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .container {
@@ -44,13 +59,16 @@ img {
   margin-inline: auto;
 }
 
-/* Шапка */
+/* ==================================================
+   ШАПКА
+   ================================================== */
 
 .header {
   position: relative;
-  z-index: 5;
+  z-index: 10;
   background: var(--dark);
-  color: #fff;
+  color: var(--white);
+  border-bottom: 1px solid var(--border-dark);
 }
 
 .header__inner {
@@ -65,14 +83,17 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  color: #fff;
+  flex-shrink: 0;
+  color: var(--white);
   text-decoration: none;
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 1.5px;
   white-space: nowrap;
 }
 
 .logo img {
+  display: block;
   width: 42px;
   height: 42px;
   object-fit: contain;
@@ -81,17 +102,13 @@ img {
 .logo__text {
   display: inline-flex;
   flex-direction: column;
-  line-height: 1.15;
+  line-height: 1.2;
 }
 
-.logo__name {
-  font-size: 19px;
-}
-
-.logo__subtitle,
-.logo__text > span:not(.logo__name) {
+.logo__text span {
   color: var(--gold);
   font-size: 11px;
+  font-weight: 400;
   letter-spacing: 3px;
 }
 
@@ -99,14 +116,13 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 28px;
 }
 
 .nav a {
-  color: #f5f4ef;
-  text-decoration: none;
+  color: var(--white);
   font-size: 14px;
+  text-decoration: none;
   transition: color .2s ease;
 }
 
@@ -116,54 +132,71 @@ img {
 
 .header__phone {
   color: var(--gold);
-  text-decoration: none;
+  font-size: 14px;
   font-weight: 700;
+  text-decoration: none;
   white-space: nowrap;
 }
 
-/* Кнопки */
+/* ==================================================
+   ОБЩИЕ КНОПКИ
+   ================================================== */
 
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-height: 52px;
+  margin-top: 28px;
   padding: 14px 26px;
-  border: 0;
-  border-radius: var(--radius);
+  border: 1px solid var(--gold);
+  border-radius: 3px;
   background: var(--gold);
   color: #171917;
   text-align: center;
   text-decoration: none;
+  font-size: 14px;
   font-weight: 700;
+  line-height: 1.4;
   transition: background .2s ease, transform .2s ease;
 }
 
 .button:hover {
   background: var(--gold-hover);
+  border-color: var(--gold-hover);
   transform: translateY(-1px);
 }
 
-/* Первый экран */
+/* ==================================================
+   ГЛАВНЫЙ ЭКРАН
+   ================================================== */
 
 .hero {
-  min-height: 510px;
+  position: relative;
   display: flex;
   align-items: center;
+  min-height: 560px;
+  overflow: hidden;
   background:
-    linear-gradient(90deg, rgba(24, 29, 26, .90), rgba(24, 29, 26, .40)),
-    url("hero.jpg") center / cover no-repeat;
-  color: #fff;
+    linear-gradient(
+      90deg,
+      rgba(24, 29, 26, .92) 0%,
+      rgba(24, 29, 26, .76) 52%,
+      rgba(24, 29, 26, .30) 100%
+    ),
+    url("hero.jpg") center / cover no-repeat,
+    var(--dark-soft);
+  color: var(--white);
 }
 
 .hero__content {
-  padding-top: 75px;
-  padding-bottom: 75px;
+  padding-top: 76px;
+  padding-bottom: 76px;
 }
 
 .eyebrow {
   margin: 0 0 18px;
-  color: #d5a84d;
+  color: var(--gold);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 3px;
@@ -171,22 +204,26 @@ img {
 }
 
 .hero h1 {
-  max-width: 700px;
-  margin: 0 0 22px;
+  max-width: 760px;
+  margin: 0;
+  color: var(--white);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(40px, 5vw, 66px);
+  font-size: clamp(40px, 5.5vw, 68px);
   font-weight: 400;
-  line-height: 1.1;
+  line-height: 1.12;
+  letter-spacing: -1px;
 }
 
 .hero__text {
   max-width: 580px;
-  margin: 0 0 30px;
+  margin: 24px 0 0;
   color: #e1e2dc;
   font-size: 18px;
 }
 
-/* Секции */
+/* ==================================================
+   СЕКЦИИ
+   ================================================== */
 
 .section {
   padding: 88px 0;
@@ -204,29 +241,41 @@ img {
 
 .section__text {
   margin: 0 0 38px;
-  color: var(--muted);
+  color: var(--light-muted);
 }
 
-/* Карточки квартир */
+/* ==================================================
+   КАТАЛОГ КВАРТИР — СВЕТЛЫЕ КАРТОЧКИ
+   ================================================== */
 
 .apartments {
-  background: var(--background);
+  background: var(--light-bg);
+  color: var(--light-text);
+}
+
+.apartments h2 {
+  color: var(--light-text);
+}
+
+.apartments .section__text {
+  color: var(--light-muted);
 }
 
 .apartments__grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
   align-items: stretch;
+  gap: 24px;
 }
 
 .apartment-card {
-  min-width: 0;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--border);
-  background: var(--surface);
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  background: var(--light-card);
+  color: var(--light-text);
 }
 
 .apartment-card__image-link {
@@ -248,16 +297,19 @@ img {
 }
 
 .apartment-card__content {
-  flex: 1;
   display: flex;
+  flex: 1;
   flex-direction: column;
   align-items: flex-start;
   padding: 22px 24px 24px;
+  background: var(--light-card);
+  color: var(--light-text);
 }
 
-.apartment-card__title {
-  min-height: 56px;
+.apartment-card__title,
+.apartment-card h3 {
   margin: 0 0 18px;
+  color: var(--light-text);
   font-family: Georgia, "Times New Roman", serif;
   font-size: 24px;
   font-weight: 400;
@@ -267,19 +319,20 @@ img {
 .apartment-card__description {
   min-height: 48px;
   margin: 0 0 18px;
-  color: #666a64;
+  color: var(--light-muted);
   font-size: 14px;
   line-height: 1.65;
 }
 
 .apartment-card__price {
   margin: 0 0 18px;
+  color: var(--light-text);
   font-size: 14px;
   font-weight: 700;
 }
 
 .apartment-card__price span {
-  color: #6f726c;
+  color: var(--light-muted);
   font-weight: 400;
 }
 
@@ -289,22 +342,22 @@ img {
   margin-bottom: 14px;
   padding-top: 8px;
   color: #8d6520;
-  text-decoration: none;
   font-size: 14px;
   font-weight: 700;
+  text-decoration: none;
 }
 
 .apartment-card__link:hover {
   color: #b08435;
 }
 
-/* Две золотые кнопки в каждой карточке */
+/* Кнопки бронирования в карточках */
 
 .apartment-card__buttons {
-  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 100%;
   margin-top: 4px;
 }
 
@@ -316,7 +369,7 @@ img {
   min-height: 52px;
   padding: 12px 10px;
   border: 0;
-  border-radius: var(--radius);
+  border-radius: 5px;
   background: var(--gold);
   color: #171917;
   text-align: center;
@@ -329,13 +382,21 @@ img {
 
 .apartment-card__button:hover {
   background: var(--gold-hover);
+  color: #171917;
   transform: translateY(-1px);
 }
 
-/* О нас */
+/* ==================================================
+   БЛОК О НАС
+   ================================================== */
 
 .about {
-  background: #ebe8df;
+  background: var(--dark-soft);
+  color: var(--white);
+}
+
+.about h2 {
+  color: var(--white);
 }
 
 .about__content {
@@ -344,15 +405,22 @@ img {
 
 .about__content p:not(.eyebrow) {
   max-width: 760px;
-  color: #62665f;
+  margin-top: 18px;
+  color: var(--muted);
 }
 
-/* Контакты */
+/* ==================================================
+   КОНТАКТЫ
+   ================================================== */
 
 .contacts {
   background: var(--dark);
-  color: #f8f7f2;
+  color: var(--white);
   text-align: center;
+}
+
+.contacts h2 {
+  color: var(--white);
 }
 
 .contacts__content {
@@ -360,7 +428,8 @@ img {
 }
 
 .contacts__content > p:not(.eyebrow) {
-  color: #c8ccc5;
+  margin-top: 18px;
+  color: var(--muted);
 }
 
 .contact-buttons {
@@ -378,10 +447,12 @@ img {
   justify-content: center;
   min-height: 52px;
   padding: 14px 24px;
-  border-radius: var(--radius);
-  text-decoration: none;
+  border: 0;
+  border-radius: 5px;
   text-align: center;
+  text-decoration: none;
   font-weight: 700;
+  line-height: 1.4;
   transition: background .2s ease, transform .2s ease;
 }
 
@@ -396,6 +467,7 @@ img {
 
 .contact-button--telegram:hover {
   background: #1889bf;
+  color: #fff;
 }
 
 .contact-button--vk {
@@ -405,6 +477,7 @@ img {
 
 .contact-button--vk:hover {
   background: #0066dc;
+  color: #fff;
 }
 
 .contact-button--gold {
@@ -415,14 +488,17 @@ img {
 
 .contact-button--gold:hover {
   background: var(--gold-hover);
+  color: #171917;
 }
 
-/* Подвал */
+/* ==================================================
+   ПОДВАЛ
+   ================================================== */
 
 .footer {
   padding: 34px 0;
-  border-top: 1px solid rgba(255, 255, 255, .12);
-  background: #202522;
+  border-top: 1px solid var(--border-dark);
+  background: var(--dark);
   color: #d9dcd6;
 }
 
@@ -436,6 +512,7 @@ img {
 
 .footer__inner p {
   margin: 0;
+  color: var(--muted);
   font-size: 13px;
 }
 
@@ -446,16 +523,301 @@ img {
 }
 
 .footer__socials a {
-  color: #fff;
-  text-decoration: none;
+  color: var(--white);
   font-size: 14px;
+  text-decoration: none;
 }
 
 .footer__socials a:hover {
   color: var(--gold);
 }
 
-/* Планшеты */
+/* ==================================================
+   СТРАНИЦЫ КВАРТИР
+   Весь фон страницы тёмный, без светлых полос.
+   Эти правила переопределяют встроенные стили HTML.
+   ================================================== */
+
+body:has(.apartment-page) {
+  min-height: 100vh;
+  background: var(--dark) !important;
+  color: var(--white);
+}
+
+body:has(.apartment-page) .apartment-page {
+  width: 100%;
+  max-width: 1168px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 40px 24px 70px;
+  background: var(--dark) !important;
+  color: var(--white);
+}
+
+.apartment-page,
+.apartment-page * {
+  box-sizing: border-box;
+}
+
+.apartment-page h1 {
+  color: var(--white);
+}
+
+.apartment-page .apartment-back {
+  display: inline-block;
+  margin-bottom: 26px;
+  color: var(--gold);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.apartment-page .apartment-back:hover {
+  color: #f2d99d;
+}
+
+.apartment-page .apartment-subtitle {
+  margin: 0 0 28px;
+  color: #c2c3bb;
+  line-height: 1.7;
+}
+
+/* Галерея */
+
+.apartment-page .apartment-gallery {
+  display: block;
+  width: 100%;
+  margin: 0 0 26px;
+  background: var(--dark) !important;
+}
+
+.apartment-page .gallery-main {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: clamp(280px, 52vw, 560px);
+  overflow: hidden;
+  border-radius: 10px;
+  background: #171a17;
+}
+
+.apartment-page img.apartment-main-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: #171a17;
+  object-fit: contain;
+  object-position: center;
+  cursor: zoom-in;
+}
+
+.apartment-page .gallery-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin: 0;
+  padding: 0 0 4px;
+  transform: translateY(-50%);
+  border: 1px solid rgba(223, 185, 102, .75);
+  border-radius: 50%;
+  background: rgba(23, 26, 23, .85);
+  color: var(--gold);
+  font-family: Arial, sans-serif;
+  font-size: 36px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.apartment-page .gallery-arrow:hover {
+  background: #373a31;
+}
+
+.apartment-page .gallery-prev {
+  left: 16px;
+}
+
+.apartment-page .gallery-next {
+  right: 16px;
+}
+
+.apartment-page .gallery-counter {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  z-index: 5;
+  padding: 7px 12px;
+  border-radius: 20px;
+  background: rgba(23, 26, 23, .85);
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.apartment-page .gallery-thumbnails {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin: 12px 0 0;
+  padding: 4px 2px 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  background: var(--dark) !important;
+}
+
+.apartment-page .gallery-thumbnails img {
+  display: block;
+  flex: 0 0 110px;
+  width: 110px;
+  min-width: 110px;
+  max-width: 110px;
+  height: 78px;
+  min-height: 78px;
+  max-height: 78px;
+  margin: 0;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  background: #171a17;
+  object-fit: cover;
+  object-position: center;
+  opacity: .7;
+  cursor: pointer;
+}
+
+.apartment-page .gallery-thumbnails img:hover {
+  opacity: .9;
+}
+
+.apartment-page .gallery-thumbnails img.active {
+  border-color: var(--gold);
+  opacity: 1;
+}
+
+/* Информационные карточки — теперь тёмные */
+
+.apartment-page .apartment-info {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 26px 0;
+  background: var(--dark) !important;
+}
+
+.apartment-page .apartment-info-item {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid #3b443d !important;
+  border-radius: 8px;
+  background: var(--dark-soft) !important;
+  color: var(--white) !important;
+}
+
+.apartment-page .apartment-info-item span {
+  display: block;
+  margin-bottom: 8px;
+  color: #c2c3bb !important;
+  font-size: 14px;
+}
+
+.apartment-page .apartment-info-item strong {
+  color: var(--white) !important;
+  font-size: 18px;
+}
+
+/* Описание, удобства, правила и цены */
+
+.apartment-page .apartment-section {
+  margin-top: 36px;
+  background: var(--dark) !important;
+  color: #e8e6de;
+  line-height: 1.8;
+}
+
+.apartment-page .apartment-section h2 {
+  margin: 0 0 16px;
+  color: var(--gold);
+  font-size: 27px;
+  line-height: 1.3;
+}
+
+.apartment-page .apartment-section h3 {
+  margin: 24px 0 12px;
+  color: var(--gold);
+  font-size: 21px;
+}
+
+.apartment-page .apartment-section p {
+  margin: 0 0 12px;
+  color: #e0e0d8;
+}
+
+.apartment-page .apartment-section ul {
+  margin: 10px 0 18px;
+  padding-left: 24px;
+  background: var(--dark) !important;
+  color: #e0e0d8;
+}
+
+.apartment-page .apartment-section li {
+  margin-bottom: 8px;
+  padding-left: 3px;
+  color: #e0e0d8;
+}
+
+.apartment-page .apartment-section strong {
+  color: #fff;
+}
+
+.apartment-page .apartment-price {
+  margin: 12px 0 22px !important;
+  color: var(--gold) !important;
+  font-size: clamp(25px, 4vw, 32px);
+  font-weight: 700;
+}
+
+.apartment-page .apartment-booking {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  margin-top: 12px;
+  padding: 15px 24px;
+  border: 0;
+  border-radius: 5px;
+  background: var(--gold);
+  color: #171917;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background .2s ease;
+}
+
+.apartment-page .apartment-booking:hover {
+  background: var(--gold-hover);
+}
+
+.apartment-page .apartment-note {
+  margin-top: 18px !important;
+  color: #bfc1b7 !important;
+  font-size: 14px;
+}
+
+/* ==================================================
+   ПЛАНШЕТЫ
+   ================================================== */
 
 @media (max-width: 950px) {
   .header__inner {
@@ -477,11 +839,17 @@ img {
   .apartment-card__image {
     height: 230px;
   }
+
+  .section {
+    padding: 76px 0;
+  }
 }
 
-/* Телефоны */
+/* ==================================================
+   МОБИЛЬНЫЕ УСТРОЙСТВА
+   ================================================== */
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   .container {
     width: calc(100% - 28px);
   }
@@ -490,21 +858,32 @@ img {
     gap: 14px;
   }
 
+  .logo {
+    font-size: 17px;
+    letter-spacing: 1px;
+  }
+
+  .logo img {
+    width: 34px;
+    height: 34px;
+  }
+
   .header__phone {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .nav {
-    justify-content: flex-start;
-    gap: 16px;
+    justify-content: space-between;
+    gap: 12px;
   }
 
   .nav a {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .hero {
-    min-height: 430px;
+    min-height: 440px;
+    background-position: 58% center;
   }
 
   .hero__content {
@@ -537,12 +916,14 @@ img {
     padding: 20px;
   }
 
-  .apartment-card__title {
-    min-height: auto;
+  .apartment-card__title,
+  .apartment-card h3 {
+    min-height: 0;
+    font-size: 23px;
   }
 
   .apartment-card__description {
-    min-height: auto;
+    min-height: 0;
   }
 
   .apartment-card__button {
@@ -562,77 +943,54 @@ img {
     flex-direction: column;
     align-items: flex-start;
   }
-}
 
-/* Исправление оформления внутренних страниц квартир */
-.apartment-detail,
-.apartment-info,
-.apartment-description,
-.apartment-content,
-.apartment-about,
-.apartment-amenities,
-.apartment-features,
-.apartment-section,
-.detail-card,
-.info-card {
-  background-color: #202522;
-  color: #f5f3ed;
-}
+  /* Внутренние страницы квартир */
 
-.apartment-detail h1,
-.apartment-detail h2,
-.apartment-detail h3,
-.apartment-info h1,
-.apartment-info h2,
-.apartment-info h3,
-.apartment-description h1,
-.apartment-description h2,
-.apartment-description h3,
-.apartment-content h1,
-.apartment-content h2,
-.apartment-content h3,
-.apartment-about h2,
-.apartment-amenities h2,
-.apartment-features h2 {
-  color: #dfb966;
-}
+  body:has(.apartment-page) {
+    background: var(--dark) !important;
+  }
 
-.apartment-detail p,
-.apartment-info p,
-.apartment-description p,
-.apartment-content p,
-.apartment-about p,
-.apartment-amenities li,
-.apartment-features li,
-.apartment-section p,
-.apartment-section li,
-.detail-card p,
-.info-card p {
-  color: #e5e4dd;
-}
+  body:has(.apartment-page) .apartment-page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 26px 16px 45px;
+    background: var(--dark) !important;
+  }
 
-.apartment-detail a,
-.apartment-info a,
-.apartment-content a {
-  color: #dfb966;
-}
+  .apartment-page .gallery-main {
+    height: 300px;
+    border-radius: 8px;
+  }
 
-.apartment-detail .button,
-.apartment-info .button,
-.apartment-content .button {
-  background-color: #dfb966;
-  color: #202522;
-}
+  .apartment-page .gallery-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+  }
 
-@media (max-width: 600px) {
-  .apartment-detail,
-  .apartment-info,
-  .apartment-description,
-  .apartment-content,
-  .apartment-about,
-  .apartment-amenities,
-  .apartment-features {
-    padding-left: 16px;
-    padding-right: 16px;
+  .apartment-page .gallery-prev {
+    left: 10px;
+  }
+
+  .apartment-page .gallery-next {
+    right: 10px;
+  }
+
+  .apartment-page .gallery-thumbnails img {
+    flex-basis: 85px;
+    width: 85px;
+    min-width: 85px;
+    max-width: 85px;
+    height: 65px;
+    min-height: 65px;
+    max-height: 65px;
+  }
+
+  .apartment-page .apartment-info {
+    grid-template-columns: 1fr;
+  }
+
+  .apartment-page .apartment-section h2 {
+    font-size: 24px;
   }
 }
