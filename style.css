@@ -563,3 +563,76 @@ img {
     align-items: flex-start;
   }
 }
+
+/* Исправление оформления внутренних страниц квартир */
+.apartment-detail,
+.apartment-info,
+.apartment-description,
+.apartment-content,
+.apartment-about,
+.apartment-amenities,
+.apartment-features,
+.apartment-section,
+.detail-card,
+.info-card {
+  background-color: #202522;
+  color: #f5f3ed;
+}
+
+.apartment-detail h1,
+.apartment-detail h2,
+.apartment-detail h3,
+.apartment-info h1,
+.apartment-info h2,
+.apartment-info h3,
+.apartment-description h1,
+.apartment-description h2,
+.apartment-description h3,
+.apartment-content h1,
+.apartment-content h2,
+.apartment-content h3,
+.apartment-about h2,
+.apartment-amenities h2,
+.apartment-features h2 {
+  color: #dfb966;
+}
+
+.apartment-detail p,
+.apartment-info p,
+.apartment-description p,
+.apartment-content p,
+.apartment-about p,
+.apartment-amenities li,
+.apartment-features li,
+.apartment-section p,
+.apartment-section li,
+.detail-card p,
+.info-card p {
+  color: #e5e4dd;
+}
+
+.apartment-detail a,
+.apartment-info a,
+.apartment-content a {
+  color: #dfb966;
+}
+
+.apartment-detail .button,
+.apartment-info .button,
+.apartment-content .button {
+  background-color: #dfb966;
+  color: #202522;
+}
+
+@media (max-width: 600px) {
+  .apartment-detail,
+  .apartment-info,
+  .apartment-description,
+  .apartment-content,
+  .apartment-about,
+  .apartment-amenities,
+  .apartment-features {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
