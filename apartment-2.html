@@ -4,11 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#202522">
   <title>Евродвушка 40 м² — ANASTAY</title>
   <meta name="description" content="Евродвушка 40 м² в Верх-Исетском районе Екатеринбурга, рядом с ТРЦ Радуга Парк. Два двуспальных места, Smart TV, Wi-Fi.">
   <link rel="stylesheet" href="style.css">
 
   <style>
+    body {
+      margin: 0;
+      background: #202522 !important;
+      color: #f5f1e8;
+    }
+
     .apartment-page {
       box-sizing: border-box;
       width: 100%;
@@ -27,7 +34,7 @@
     .apartment-page .apartment-back {
       display: inline-block;
       margin-bottom: 26px;
-      color: #d9b66f;
+      color: #dfb966;
       text-decoration: none;
       font-weight: 600;
     }
@@ -49,7 +56,6 @@
       line-height: 1.7;
     }
 
-    /* Карусель */
     .apartment-page .apartment-gallery {
       display: block;
       width: 100%;
@@ -93,10 +99,10 @@
       margin: 0;
       padding: 0 0 4px;
       transform: translateY(-50%);
-      border: 1px solid rgba(217, 182, 111, 0.75);
+      border: 1px solid rgba(223, 185, 102, 0.75);
       border-radius: 50%;
       background: rgba(23, 26, 23, 0.85);
-      color: #d9b66f;
+      color: #dfb966;
       font-family: Arial, sans-serif;
       font-size: 36px;
       line-height: 1;
@@ -109,12 +115,10 @@
 
     .apartment-page .gallery-prev {
       left: 16px;
-      right: auto;
     }
 
     .apartment-page .gallery-next {
       right: 16px;
-      left: auto;
     }
 
     .apartment-page .gallery-counter {
@@ -160,7 +164,7 @@
       object-position: center;
       border: 2px solid transparent;
       border-radius: 6px;
-      background: #e5e1d7;
+      background: #29312c;
       opacity: 0.7;
       cursor: pointer;
     }
@@ -170,11 +174,10 @@
     }
 
     .apartment-page .gallery-thumbnails img.active {
-      border-color: #d9b66f;
+      border-color: #dfb966;
       opacity: 1;
     }
 
-    /* Карточки информации */
     .apartment-page .apartment-info {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -185,25 +188,24 @@
     .apartment-page .apartment-info-item {
       min-width: 0;
       padding: 20px;
-      border: 1px solid #e6e1d7;
+      border: 1px solid #394139;
       border-radius: 8px;
-      background: #fff;
-      color: #292b25;
+      background: #29312c !important;
+      color: #f5f1e8 !important;
     }
 
     .apartment-page .apartment-info-item span {
       display: block;
       margin-bottom: 8px;
-      color: #77766f;
+      color: #c2c3bb;
       font-size: 14px;
     }
 
     .apartment-page .apartment-info-item strong {
-      color: #292b25;
+      color: #f5f1e8 !important;
       font-size: 18px;
     }
 
-    /* Описание и условия */
     .apartment-page .apartment-section {
       margin-top: 36px;
       color: #e8e6de;
@@ -212,14 +214,14 @@
 
     .apartment-page .apartment-section h2 {
       margin: 0 0 16px;
-      color: #f5f1e8;
+      color: #dfb966;
       font-size: 27px;
       line-height: 1.3;
     }
 
     .apartment-page .apartment-section h3 {
       margin: 24px 0 12px;
-      color: #f5f1e8;
+      color: #dfb966;
       font-size: 21px;
     }
 
@@ -245,7 +247,7 @@
 
     .apartment-page .apartment-price {
       margin: 12px 0 22px !important;
-      color: #d9b66f !important;
+      color: #dfb966 !important;
       font-size: clamp(25px, 4vw, 32px);
       font-weight: 700;
     }
@@ -256,8 +258,8 @@
       padding: 15px 24px;
       border: 0;
       border-radius: 5px;
-      background: #d9b66f;
-      color: #171717;
+      background: #dfb966;
+      color: #202522;
       text-decoration: none;
       font-weight: 700;
       transition: background 0.2s ease;
@@ -329,9 +331,7 @@
       40 м² · Верх-Исетский район · отдельная спальня и кухня-гостиная
     </p>
 
-    <!-- Карусель фотографий -->
     <div class="apartment-gallery">
-
       <div class="gallery-main">
         <button
           class="gallery-arrow gallery-prev"
@@ -343,7 +343,7 @@
         <img
           class="apartment-main-photo"
           id="gallery-main"
-          src="images/apartment-2-1.jpg"
+          src="apartment-2-1.jpg"
           alt="Евродвушка в Екатеринбурге — фото 1"
         >
 
@@ -354,27 +354,24 @@
           aria-label="Следующее фото"
         >›</button>
 
-        <div class="gallery-counter" id="gallery-counter">1 / 8</div>
+        <div class="gallery-counter" id="gallery-counter">1 / 10</div>
       </div>
 
       <div class="gallery-thumbnails">
-        <img src="images/apartment-2-1.jpg" alt="Фото 1" data-index="0" class="active">
-        <img src="images/apartment-2-2.jpg" alt="Фото 2" data-index="1">
-        <img src="images/apartment-2-3.jpg" alt="Фото 3" data-index="2">
-        <img src="images/apartment-2-4.jpg" alt="Фото 4" data-index="3">
-        <img src="images/apartment-2-5.jpg" alt="Фото 5" data-index="4">
-        <img src="images/apartment-2-6.jpg" alt="Фото 6" data-index="5">
-        <img src="images/apartment-2-7.jpg" alt="Фото 7" data-index="6">
-        <img src="images/apartment-2-8.jpg" alt="Фото 8" data-index="7">
-        <img src="images/apartment-2-9.jpg" alt="Фото 8" data-index="8">
-        <img src="images/apartment-2-11.jpg" alt="Фото 8" data-index="9">
+        <img src="apartment-2-1.jpg" alt="Фото 1" data-index="0" class="active">
+        <img src="apartment-2-2.jpg" alt="Фото 2" data-index="1">
+        <img src="apartment-2-3.jpg" alt="Фото 3" data-index="2">
+        <img src="apartment-2-4.jpg" alt="Фото 4" data-index="3">
+        <img src="apartment-2-5.jpg" alt="Фото 5" data-index="4">
+        <img src="apartment-2-6.jpg" alt="Фото 6" data-index="5">
+        <img src="apartment-2-7.jpg" alt="Фото 7" data-index="6">
+        <img src="apartment-2-8.jpg" alt="Фото 8" data-index="7">
+        <img src="apartment-2-9.jpg" alt="Фото 9" data-index="8">
+        <img src="apartment-2-11.jpg" alt="Фото 10" data-index="9">
       </div>
-
     </div>
 
-    <!-- Краткая информация -->
     <div class="apartment-info">
-
       <div class="apartment-info-item">
         <span>Стоимость</span>
         <strong>От 3 100 ₽ / сутки</strong>
@@ -389,29 +386,27 @@
         <span>Заезд и выезд</span>
         <strong>16:00 / 14:00</strong>
       </div>
-
     </div>
 
-    <!-- Об объекте -->
     <section class="apartment-section">
       <h2>Об этой квартире</h2>
 
       <p>
         <strong>Евродвушка площадью 40 м²</strong> на 4-м этаже
-        в Верх-Исетском районе Екатеринбурга
+        в Верх-Исетском районе Екатеринбурга.
       </p>
 
       <p>
         В квартире отдельная спальня и кухня, объединённая с гостиной.
         Предусмотрены два двуспальных места — удобно для семейного
-        отдыха, поездок с друзьями и командировок
+        отдыха, поездок с друзьями и командировок.
       </p>
 
       <p>
         Через дорогу находится торгово-развлекательный центр
         «Радуга Парк» с продуктовыми магазинами, магазинами одежды
         и товаров для дома, ресторанами и развлечениями для взрослых
-        и детей
+        и детей.
       </p>
 
       <p><strong>В шаговой доступности:</strong></p>
@@ -423,13 +418,12 @@
       </ul>
     </section>
 
-    <!-- Удобства -->
     <section class="apartment-section">
       <h2>Удобства</h2>
 
       <ul>
         <li>Два двуспальных места</li>
-        <li>Wi-Fi.</li>
+        <li>Wi-Fi</li>
         <li>Умная колонка Алиса</li>
         <li>Телевизор со Smart TV</li>
         <li>
@@ -443,11 +437,10 @@
 
       <p>
         <strong>Размещение с животными:</strong>
-        за дополнительную плату — 1 500 ₽
+        за дополнительную плату — 1 500 ₽.
       </p>
     </section>
 
-    <!-- Стоимость и правила -->
     <section class="apartment-section">
       <h2>Стоимость и условия проживания</h2>
 
@@ -462,11 +455,11 @@
       <p>
         Стоимость проживания может меняться в зависимости от дня недели,
         выходных и праздничных дней, сезона, спроса, количества гостей
-        и продолжительности проживания
+        и продолжительности проживания.
       </p>
 
       <p>
-        Уточняйте итоговую стоимость и свободные даты перед бронированием
+        Уточняйте итоговую стоимость и свободные даты перед бронированием.
       </p>
 
       <h3>Правила проживания</h3>
@@ -477,13 +470,12 @@
       </ul>
     </section>
 
-    <!-- Бронирование -->
     <section class="apartment-section">
       <h2>Бронирование</h2>
 
       <p>
         Напишите нам в Telegram, чтобы узнать о свободных датах,
-        уточнить стоимость и договориться о бронировании
+        уточнить стоимость и договориться о бронировании.
       </p>
 
       <a
@@ -494,7 +486,7 @@
       >Забронировать в Telegram</a>
 
       <p class="apartment-note">
-        Итоговая стоимость подтверждается при согласовании дат проживания
+        Итоговая стоимость подтверждается при согласовании дат проживания.
       </p>
     </section>
 
@@ -510,13 +502,7 @@
       const nextButton = document.getElementById("gallery-next");
       const counter = document.getElementById("gallery-counter");
 
-      if (
-        !mainPhoto ||
-        !prevButton ||
-        !nextButton ||
-        !counter ||
-        thumbnails.length === 0
-      ) {
+      if (!mainPhoto || !prevButton || !nextButton || !counter || thumbnails.length === 0) {
         console.error("Карусель: не найдены необходимые элементы.");
         return;
       }
@@ -531,8 +517,7 @@
         currentIndex = (index + photos.length) % photos.length;
 
         mainPhoto.src = photos[currentIndex];
-        mainPhoto.alt =
-          "Евродвушка в Екатеринбурге — фото " + (currentIndex + 1);
+        mainPhoto.alt = "Евродвушка в Екатеринбурге — фото " + (currentIndex + 1);
 
         thumbnails.forEach(function (thumbnail, i) {
           const active = i === currentIndex;
@@ -545,8 +530,7 @@
           }
         });
 
-        counter.textContent =
-          (currentIndex + 1) + " / " + photos.length;
+        counter.textContent = (currentIndex + 1) + " / " + photos.length;
       }
 
       prevButton.addEventListener("click", function () {
@@ -576,7 +560,7 @@
       });
 
       mainPhoto.addEventListener("error", function () {
-        mainPhoto.alt = "Не удалось загрузить фотографию. Проверьте файл в папке images.";
+        mainPhoto.alt = "Не удалось загрузить фото. Проверь имя файла и расположение в GitHub.";
       });
 
       showPhoto(0);
