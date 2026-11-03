@@ -18,7 +18,7 @@ const apartments = [
     title: "ул. Репина, 109",
     price: 3100,
     image: "apartment-3-1.jpg",
-    description: "Заселение с 15:00, выезд до 13:00 · до 4 гостей",
+    description: "Заселение с 15:00, выезд до 13:00 · до 2 гостей",
     page: "apartment-3.html"
   },
   {
