@@ -695,7 +695,7 @@ body:has(.apartment-page) .apartment-page {
   opacity: 1;
 }
 
-/* Информационные карточки — теперь тёмные */
+/* Информационные карточки — тёмные */
 
 .apartment-page .apartment-info {
   display: grid;
@@ -737,14 +737,14 @@ body:has(.apartment-page) .apartment-page {
 
 .apartment-page .apartment-section h2 {
   margin: 0 0 16px;
-  color: var(--gold);
+  color: var(--white);
   font-size: 27px;
   line-height: 1.3;
 }
 
 .apartment-page .apartment-section h3 {
   margin: 24px 0 12px;
-  color: var(--gold);
+  color: var(--white);
   font-size: 21px;
 }
 
