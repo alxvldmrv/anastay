@@ -982,3 +982,17 @@ body:has(.apartment-page) .apartment-page {
     font-size: 24px;
   }
 }
+/* Белые заголовки на страницах квартир */
+.apartment-page h1,
+.apartment-page h2,
+.apartment-page h3,
+.apartment-page h4 {
+    color: #f5f3ed !important;
+}
+
+/* Цена остаётся золотой */
+.apartment-page .apartment-price,
+.apartment-page .price,
+.apartment-page .price-value {
+    color: #dfb966 !important;
+}
